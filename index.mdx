@@ -39,6 +39,22 @@ export { future as theme } from "mdx-deck/themes";
 
 ---
 
+## Loaders
+
+-   [Concept](https://webpack.js.org/loaders/)
+-   [Raw Loader](https://github.com/webpack-contrib/raw-loader/blob/master/src/index.js)
+
+---
+
+## Plugins
+
+-   [List](https://webpack.js.org/plugins/)
+-   [BannerPlugin](https://github.com/webpack/webpack/blob/master/lib/BannerPlugin.js)
+-   [DefinePlugin](https://github.com/webpack/webpack/blob/master/lib/DefinePlugin.js)
+-   [DotenvPlugin](https://github.com/mrsteele/dotenv-webpack/blob/master/src/index.js)
+
+---
+
 ## Component state
 
 ### vs
@@ -49,11 +65,35 @@ export { future as theme } from "mdx-deck/themes";
 
 ## Pull request
 
+[demo](https://github.com/TianyuanC/pull-request-demo)
+
+---
+
+-   Internal branches
+-   Forked Repo
+
 ---
 
 ## Syled Component
 
 [Repo](https://www.styled-components.com/)
+
+---
+
+import { CodeSurfer } from "mdx-deck-code-surfer";
+
+<CodeSurfer
+    title="Sytled Component"
+    code={require("!raw-loader!./code/styled.js")}
+    lang="javascript"
+    dark={false}
+    steps={[
+        { notes: "all styled" },
+        { range: [12, 16], notes: "extend <img />" },
+        { range: [3, 10], notes: "define keyframes for rotation" },
+        { lines: [13], notes: "use the spinning animation" }
+    ]}
+/>
 
 ---
 
