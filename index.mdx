@@ -55,11 +55,10 @@ export { future as theme } from "mdx-deck/themes";
 
 ---
 
-## Component state
+## Redux store <-> React State
 
-### vs
-
-## Redux state
+-   [Discussion](https://github.com/reduxjs/redux/issues/1287)
+-   [You Might Not Need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367)
 
 ---
 
@@ -97,7 +96,39 @@ import { CodeSurfer } from "mdx-deck-code-surfer";
 
 ---
 
+import Code from "mdx-code";
+
 ## ES6 Practices
+
+---
+
+export default Code;
+
+```javascript curried functions
+const pairCon = (a, b) => f => f(a, b);
+
+// usages, e.g.,
+const getMin = (a, b) => pairCon(a, b)(Math.min);
+const getMax = (a, b) => pairCon(a, b)(Math.max);
+const getPow = (a, b) => pairCon(a, b)(Math.pow);
+
+console.log(`Min: ${getMin(-2, 4)}`);
+console.log(`Max: ${getMax(1, -1)}`);
+console.log(`Pow: ${getPow(2, 4)}`);
+
+// usages 2, e.g.,
+const getMin2 = f => f(Math.min);
+const getMax2 = f => f(Math.max);
+console.log(`Min2: ${getMin2(pairCon(-2, 4))}`);
+console.log(`Max2: ${getMax2(pairCon(1, -1))}`);
+
+// exercise
+const getFirst = f => f(a => a);
+const getLast = f => f((a, b) => b);
+
+console.log(`First: ${getFirst(pairCon(3, 2))}`);
+console.log(`Last: ${getLast(pairCon(3, 6))}`);
+```
 
 ---
 
